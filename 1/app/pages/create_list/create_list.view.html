@@ -1,0 +1,11 @@
+<div ng-controller="CreateList as vm">
+    <h1>Create a New List</h1>
+    <form>
+        <div class="form-group">
+            <label for="listName">List Name:</label>  
+            <input id="listName" type="text" class="form-control" ng-model="vm.listName" />
+        </div>
+        
+        <button class="btn btn-lg" ng-click="vm.createList()" >Create List</button>
+    </form>
+</div>

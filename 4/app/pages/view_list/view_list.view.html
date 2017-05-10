@@ -1,0 +1,9 @@
+<button class="btn" ng-click="vm.backBtn()">Back</button>
+
+<h1>{{vm.listName}}</h1>
+
+<div class="list-group">
+    <div ng-repeat="item in vm.lists[vm.listName]">
+        <list-item edit="no" bold="item.bold" strike="item.strike">{{item.name}}</list-item>
+    </div>
+</div>

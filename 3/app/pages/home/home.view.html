@@ -1,0 +1,24 @@
+<div ng-controller="Home as vm">
+    <h1>Lists</h1>
+    <div class="list-group">
+        <button type="button" class="list-group-item" ng-repeat="(key, value) in vm.lists">{{key}}</button>
+    </div>
+    
+    <h2>Directive Examples</h2>
+    
+    <h3>Uneditable list items</h3>
+    
+    <div class="list-group">
+        <div ng-repeat="item in vm.lists['List One']">
+            <list-item edit="no" bold="item.bold" strike="item.strike">{{item.name}}</list-item>
+        </div>
+    </div>
+    
+    <h3>Editable List Items</h3>
+    
+    <div class="list-group">
+        <div ng-repeat="item in vm.lists['List One']">
+            <list-item edit="yes" bold="item.bold" strike="item.strike" remove="vm.remove('List One', $index)">{{item.name}}</list-item>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div ng-controller="Home as vm">
+    <h1>Lists</h1>
+    <div class="list-group">
+        <button type="button" class="list-group-item" ng-repeat="(key, value) in vm.lists">{{key}}</button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div ng-controller="CreateList as vm">
+    <h1>Create a New List</h1>
+    <form name="listForm" novalidate>
+        <div class="form-group">
+            <label for="listName">
+                List Name:
+                <span class="red" ng-show="listForm.listName.$invalid && !listForm.listName.$error.minlength && listForm.$dirty" >&nbsp;*List Name cannot be blank*</span>
+                <span class="red" ng-show="listForm.listName.$error.minlength">&nbsp;*List Name is too short*</span>
+                <span class="red" ng-show="listForm.listName.$error.maxlength">&nbsp;*List Name is too long*</span>
+            </label>  
+            <input id="listName" name="listName" type="text" class="form-control" ng-model="vm.listName" ng-minlength="3" ng-maxlength="20"required/>
+        </div>
+        
+        <button type="submit" class="btn btn-lg" ng-click="listForm.$setDirty(); listForm.$valid && vm.createList()">Create List</button>
+    </form>
+    
+    <h1>My Lists</h1>
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="(key, value) in vm.lists">
+            <button class="btn btn-danger pull-right" ng-click="vm.removeList(key)"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-info pull-right right10"><span class="glyphicon glyphicon-list"></span></button>
+            <h4>{{key}}</h4>
+            
+        </div>
+    </div>
+</div>

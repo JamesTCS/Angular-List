@@ -1,0 +1,9 @@
+<!-- Shows this one if edit == "yes" -->
+<div class="list-group-item" ng-show="editable">
+        <ng-transclude ng-class="{'bold':bold, 'strike':strike}"></ng-transclude>
+    <button class="btn btn-sm btn-danger pull-right vAlign" ng-click="removeBtn()"><span class="glyphicon glyphicon-remove"></span></button>
+</div>
+
+
+<!-- Shows this one if edit == "no" -->
+<button class="list-group-item" ng-hide="editable" ng-class="{'bold':bold, 'strike':strike}" ng-click="strikeOut()"><ng-transclude></ng-transclude></button>

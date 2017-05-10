@@ -1,0 +1,26 @@
+<h1>Edit: {{vm.listName}}</h1>
+
+<form name="editForm" novalidate>
+    <div class="form-group">
+        <label for="itemName">
+            Item Name:
+            <span class="red" ng-show="editForm.itemName.$invalid && !editForm.itemName.$error.minlength && editForm.$dirty" >&nbsp;*Item Name cannot be blank*</span>
+            <span class="red" ng-show="editForm.itemName.$error.minlength">&nbsp;*Item Name is too short*</span>
+            <span class="red" ng-show="editForm.itemName.$error.maxlength">&nbsp;*Item Name is too long*</span>
+        </label>  
+        <input id="itemName" name="itemName" type="text" class="form-control" ng-model="vm.itemName" ng-minlength="3" ng-maxlength="20" required/>
+    </div>
+    <label for="boldItem">
+        Bold:
+    </label>
+    <input id="boldItem" name="boldItem" ng-model="vm.bold" type="checkbox" />
+    <button type="submit" class="btn btn-lg" ng-click="editForm.$setDirty(); editForm.$valid && vm.addItem()">Add Item</button>
+</form>
+
+<h2>List Items</h2>
+
+<div class="list-group">
+    <div ng-repeat="item in vm.lists[vm.listName]">
+        <list-item edit="yes" bold="item.bold" strike="item.strike" remove="vm.remove(vm.listName, $index)">{{item.name}}</list-item>
+    </div>
+</div>
